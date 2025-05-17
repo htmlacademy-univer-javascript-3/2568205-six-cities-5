@@ -1,17 +1,24 @@
-import Card from "../../components/card/card";
+import { useParams } from "react-router-dom";
+import { Offer } from "../../types/offer-types";
 
-
-function Offer(): JSX.Element {
+type OfferProps = {
+  offers: Offer[]
+}
+function OfferComponent({offers}:OfferProps): JSX.Element {
+  const params = useParams()
+  const currentOffer = offers.find(offer=>offer.id==params.id)
+  if (! currentOffer)
+    return (<h1>Оффер не найден</h1>)
   return (
     <>
       <div className="offer__container container">
         <div className="offer__wrapper">
           <div className="offer__mark">
-            <span>Premium</span>
+            <span>{currentOffer.type}</span>
           </div>
           <div className="offer__name-wrapper">
             <h1 className="offer__name">
-              Beautiful &amp; luxurious studio at great location
+             {currentOffer.title}
             </h1>
             <button className="offer__bookmark-button button" type="button">
               <svg className="offer__bookmark-icon" width="31" height="33">
@@ -25,11 +32,11 @@ function Offer(): JSX.Element {
               <span style={{ width: '80%' }}></span>
               <span className="visually-hidden">Rating</span>
             </div>
-            <span className="offer__rating-value rating__value">4.8</span>
+            <span className="offer__rating-value rating__value">{currentOffer.rating}</span>
           </div>
           <ul className="offer__features">
             <li className="offer__feature offer__feature--entire">
-              Apartment
+              {currentOffer.type}
             </li>
             <li className="offer__feature offer__feature--bedrooms">
               3 Bedrooms
@@ -98,10 +105,10 @@ function Offer(): JSX.Element {
             </div>
             <div className="offer__description">
               <p className="offer__text">
-                A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+                {currentOffer.title}
               </p>
               <p className="offer__text">
-                An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+                {currentOffer.title}
               </p>
             </div>
           </div>
@@ -196,7 +203,6 @@ function Offer(): JSX.Element {
         <section className="near-places places">
           <h2 className="near-places__title">Other places in the neighbourhood</h2>
           <div className="near-places__list places__list">
-          <Card />
           </div>
         </section>
       </div>
@@ -204,4 +210,4 @@ function Offer(): JSX.Element {
   );
 }
 
-export default Offer;
+export default OfferComponent;
