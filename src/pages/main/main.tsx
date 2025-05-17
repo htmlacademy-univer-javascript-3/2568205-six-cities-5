@@ -1,8 +1,10 @@
 import Card from '../../components/card/card'
+import { Offer } from '../../types/offer-types';
 type MainScreenProps = {
-  placesCount: number
+  placesCount: number,
+  offers: Offer[]
 }
-function Main({placesCount}: MainScreenProps): JSX.Element {
+function Main({placesCount, offers}: MainScreenProps): JSX.Element {
     return (
       <div className="page page--gray page--main">
         <header className="header">
@@ -85,7 +87,8 @@ function Main({placesCount}: MainScreenProps): JSX.Element {
                       <use xlinkHref="#icon-arrow-select"></use>
                     </svg>
                   </span>
-                  <ul className="places__options places__options--custom places__options--opened">
+                  {/* <ul className="places__options places__options--custom places__options--opened"> */}
+                  <ul className="places__options places__options--custom">
                     <li className="places__option places__option--active" tabIndex={0}>Popular</li>
                     <li className="places__option" tabIndex={0}>Price: low to high</li>
                     <li className="places__option" tabIndex={0}>Price: high to low</li>
@@ -93,10 +96,7 @@ function Main({placesCount}: MainScreenProps): JSX.Element {
                   </ul>
                 </form>
                 <div className="cities__places-list places__list tabs__content">
-                  <Card />
-                  <Card />
-                  <Card />
-                  <Card />                
+               {offers.map(offer=><Card offer={offer}/>)}              
                 </div>
               </section>
               <div className="cities__right-section">
