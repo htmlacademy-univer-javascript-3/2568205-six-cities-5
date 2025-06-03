@@ -1,4 +1,5 @@
 import Card from '../../components/card/card'
+import Map from '../../components/map';
 import { Offer } from '../../types/offer-types';
 type MainScreenProps = {
   placesCount: number,
@@ -100,7 +101,40 @@ function Main({placesCount, offers}: MainScreenProps): JSX.Element {
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                <Map 
+                  city={{
+                    name: "Amsterdam", 
+                    location: {
+                      latitude: 52.3909553943508, 
+                      longitude: 4.85309666406198, 
+                      zoom: 0
+                    }
+                  }} 
+                  points={[{
+                    latitude: 52.3909553943508, 
+                    longitude: 4.85309666406198, 
+                    zoom: 0
+                  },
+                {
+                  latitude: 52.3609553943508, 
+                    longitude: 4.85309666406198, 
+                    zoom: 0
+                },
+                {
+                  latitude: 52.3909553943508, 
+                    longitude: 4.929309666406198, 
+                    zoom: 0
+                },
+                {
+                  latitude: 52.3809553943508, 
+                    longitude: 4.939309666406198, 
+                    zoom: 0
+                },
+              ]}
+                  selectedPoint={undefined}
+                />
+                </section>
               </div>
             </div>
           </div>
