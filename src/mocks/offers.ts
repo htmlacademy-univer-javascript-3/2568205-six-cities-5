@@ -26,7 +26,7 @@ const offers:Offer[] = [
     },
     {
         "id": "6af6f711-c28d-4121-82cd-e1b462a27f00",
-        "title": "Beautiful & luxurious studio at great location",
+        "title": "Beautiful & luxuriobbbbus studio at great location",
         "type": "hotel",
         "price": 120,
         "city": {
@@ -72,7 +72,7 @@ const offers:Offer[] = [
       },
       {
         "id": "6af6f711-c28d-4121-82cd-e3b462a27f00",
-        "title": "Stupid & luxurious studio at great location",
+        "title": "1234",
         "type": "apartment",
         "price": 120,
         "city": {
