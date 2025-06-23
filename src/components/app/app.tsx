@@ -8,7 +8,7 @@ import NotFound from "../../pages/not-found/not-found";
 import { AppRoute, AuthorizationStatus } from "../../const";
 import PrivateRoute from "../private-route/private-route";
 import { Provider } from "react-redux";
-import store from "../../store"
+import {store} from "../../store"
 
 type AppProps = {
     placesCount: number,
@@ -16,6 +16,7 @@ type AppProps = {
     cities: City[]
 }
 function App({placesCount, offers, cities}: AppProps) : JSX.Element {
+    console.log(store.getState().reducer.offers)
 return (
     <Provider store={store}>
    <BrowserRouter>
