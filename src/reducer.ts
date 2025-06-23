@@ -2,7 +2,14 @@ import { createReducer } from "@reduxjs/toolkit";
 import { changeCity } from "./action";
 
 const initialState = {
-    city: 'Amsterdam'
+    city: 'Paris',
+    offers: [],
+    favoritesOffers: [],
+    offerInfo: undefined,
+    offersNearby: undefined,
+    isLoading: false,
+    error: null,
+    isUpdate: false,
 }
 const reducer = createReducer(initialState, (builder)=>{
     builder.addCase(changeCity, (state, action)=> {
